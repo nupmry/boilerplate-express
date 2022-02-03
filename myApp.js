@@ -3,9 +3,19 @@ var app = express();
 // require('dotenv').config()
 // const mySecret = process.env['MESSAGE_STYLE'];
 
-app.get("/:word/echo", (req, res) => {
-  res.json({"echo":req.params.word})
+// app.route("/name").get((req, res) => {
+//   res.json({"name": `${req.query[first]} ${req.query[last]}`})
+// }).post((req, res) => {
+//   res.json({"name": `${req.query[first]} ${req.query[last]}`})
+// })
+
+app.get('/name', (req, res) => {
+  res.json({ name : req.query.first + " " + req.query.last})
 })
+
+// app.get("/:word/echo", (req, res) => {
+//   res.json({"echo":req.params.word})
+// })
 
 // console.log("Hello World")
 
