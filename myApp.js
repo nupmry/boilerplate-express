@@ -3,12 +3,16 @@ var app = express();
 // require('dotenv').config()
 // const mySecret = process.env['MESSAGE_STYLE'];
 
+app.get("/:word/echo", (req, res) => {
+  res.json({"echo":req.params.word})
+})
+
 // console.log("Hello World")
 
-app.get('/now', (req, res, next) => {
-  req.time = new Date().toString();
-  next();
-}, (req, res) => {res.json({time : req.time})})
+// app.get('/now', (req, res, next) => {
+//   req.time = new Date().toString();
+//   next();
+// }, (req, res) => {res.json({time : req.time})})
 
 // app.use('/public', express.static(__dirname + "/public"))
 
