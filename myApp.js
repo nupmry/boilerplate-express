@@ -5,6 +5,10 @@ var app = express();
 
 // console.log("Hello World")
 
+app.get('/now', (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+}, (req, res) => {res.json({time : req.time})})
 
 // app.use('/public', express.static(__dirname + "/public"))
 
@@ -16,10 +20,10 @@ var app = express();
 //   res.send("Hello Express")
 // })
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path} - ${req.ip}`);
-  next();
-})
+// app.use((req, res, next) => {
+//   console.log(`${req.method} ${req.path} - ${req.ip}`);
+//   next();
+// })
 
 // app.get('/json', (req, res) => {
 //   res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"})
