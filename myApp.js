@@ -1,17 +1,20 @@
 var express = require('express');
 var app = express();
+
+let bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended : false}));
+
 // require('dotenv').config()
 // const mySecret = process.env['MESSAGE_STYLE'];
 
-// app.route("/name").get((req, res) => {
-//   res.json({"name": `${req.query[first]} ${req.query[last]}`})
-// }).post((req, res) => {
-//   res.json({"name": `${req.query[first]} ${req.query[last]}`})
-// })
 
-app.get('/name', (req, res) => {
-  res.json({ name : req.query.first + " " + req.query.last})
-})
+
+// app.route(path).get((req, res) => {}).post((req, res) => {})
+
+// app.get('/name', (req, res) => {
+//   res.json({ name : req.query.first + " " + req.query.last})
+// })
 
 // app.get("/:word/echo", (req, res) => {
 //   res.json({"echo":req.params.word})
@@ -42,6 +45,8 @@ app.get('/name', (req, res) => {
 // app.get('/json', (req, res) => {
 //   res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"})
 // })
+
+
 
 
 
