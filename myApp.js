@@ -16,11 +16,14 @@ var app = express();
 //   res.send("Hello Express")
 // })
 
-
-
-app.get('/json', (req, res) => {
-  res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"})
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
 })
+
+// app.get('/json', (req, res) => {
+//   res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"})
+// })
 
 
 
