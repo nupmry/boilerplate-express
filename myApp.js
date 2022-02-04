@@ -3,12 +3,14 @@ var app = express();
 
 let bodyParser = require('body-parser')
 
-app.use(bodyParser.urlencoded({extended : false}));
+app.post('/name', bodyParser.urlencoded({extended : false}), (req, res) => {
+  res.json({name : req.body.first + " " + req.body.last})
+});
+
+// app.use(bodyParser.urlencoded({extended : false}));
 
 // require('dotenv').config()
 // const mySecret = process.env['MESSAGE_STYLE'];
-
-
 
 // app.route(path).get((req, res) => {}).post((req, res) => {})
 
@@ -46,30 +48,4 @@ app.use(bodyParser.urlencoded({extended : false}));
 //   res.json(process.env.MESSAGE_STYLE==="uppercase" ? {"message": "HELLO JSON"}: {"message": "Hello json"})
 // })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+module.exports = app;
